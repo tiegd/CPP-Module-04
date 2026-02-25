@@ -1,33 +1,31 @@
-#include "Cat.hpp"
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   AAnimal.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/24 09:20:42 by gaducurt          #+#    #+#             */
-/*   Updated: 2026/02/24 09:41:24 by gaducurt         ###   ########.fr       */
+/*   Created: 2026/02/24 09:20:36 by gaducurt          #+#    #+#             */
+/*   Updated: 2026/02/25 16:14:13 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#ifndef __AANIMAL__
+	#define __AANIMAL__
 
-Cat::Cat()
-{
-    _type = "Cat";
-	_brain = new Brain;
-	std::cout << "Cat constructor called" << std::endl;
-	std::cout << "......................." << std::endl;
-}
+	#include <string>
 
-Cat::~Cat()
-{
-	delete	this->_brain;
-	std::cout << "Cat destructor called" << std::endl;
-}
+	class	AAnimal
+	{
+		protected:
+			std::string	_type;
+		public:
+			AAnimal();
+			AAnimal(const AAnimal &obj);
+			AAnimal& operator=(const AAnimal &obj);
+			virtual ~AAnimal();
+			virtual void makeSound() const = 0;
+			std::string getType() const;
+	};
 
-void Cat::makeSound() const
-{
-	std::cout << "Miaou" << std::endl;
-}
+#endif

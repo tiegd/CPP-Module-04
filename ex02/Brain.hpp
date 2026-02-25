@@ -1,33 +1,29 @@
-#include "Cat.hpp"
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/24 09:20:42 by gaducurt          #+#    #+#             */
-/*   Updated: 2026/02/24 09:41:24 by gaducurt         ###   ########.fr       */
+/*   Created: 2026/02/24 15:03:08 by gaducurt          #+#    #+#             */
+/*   Updated: 2026/02/24 15:20:47 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#ifndef __BRAIN__
+	#define __BRAIN__
 
-Cat::Cat()
-{
-    _type = "Cat";
-	_brain = new Brain;
-	std::cout << "Cat constructor called" << std::endl;
-	std::cout << "......................." << std::endl;
-}
+	#include <string>
+	
+	class	Brain
+	{
+		private:
+			std::string	_ideas[100];
+		public:
+			Brain();
+			Brain(const Brain &obj);
+			Brain& operator=(const Brain &obj);
+			~Brain();
+	};
 
-Cat::~Cat()
-{
-	delete	this->_brain;
-	std::cout << "Cat destructor called" << std::endl;
-}
-
-void Cat::makeSound() const
-{
-	std::cout << "Miaou" << std::endl;
-}
+#endif

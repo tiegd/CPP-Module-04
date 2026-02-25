@@ -1,33 +1,31 @@
-#include "Cat.hpp"
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/24 09:20:42 by gaducurt          #+#    #+#             */
-/*   Updated: 2026/02/24 09:41:24 by gaducurt         ###   ########.fr       */
+/*   Created: 2026/02/24 13:22:24 by gaducurt          #+#    #+#             */
+/*   Updated: 2026/02/24 13:25:14 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#ifndef __WRONGANIMAL__
+	#define __WRONGANIMAL__
 
-Cat::Cat()
-{
-    _type = "Cat";
-	_brain = new Brain;
-	std::cout << "Cat constructor called" << std::endl;
-	std::cout << "......................." << std::endl;
-}
+	#include <string>
 
-Cat::~Cat()
-{
-	delete	this->_brain;
-	std::cout << "Cat destructor called" << std::endl;
-}
+	class	WrongAnimal
+	{
+		protected:
+			std::string	_type;
+		public:
+			WrongAnimal();
+			WrongAnimal(const WrongAnimal &obj);
+			WrongAnimal& operator=(const WrongAnimal &obj);
+			~WrongAnimal();
+			void makeSound() const;
+			std::string getType() const;
+	};
 
-void Cat::makeSound() const
-{
-	std::cout << "Miaou" << std::endl;
-}
+#endif

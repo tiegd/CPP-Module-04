@@ -1,33 +1,39 @@
-#include "Cat.hpp"
+#include "Brain.hpp"
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/24 09:20:42 by gaducurt          #+#    #+#             */
-/*   Updated: 2026/02/24 09:41:24 by gaducurt         ###   ########.fr       */
+/*   Created: 2026/02/24 15:03:15 by gaducurt          #+#    #+#             */
+/*   Updated: 2026/02/24 15:03:16 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
-Cat::Cat()
+Brain::Brain()
 {
-    _type = "Cat";
-	_brain = new Brain;
-	std::cout << "Cat constructor called" << std::endl;
-	std::cout << "......................." << std::endl;
+	std::cout << "Brain constructor called" << std::endl;
 }
 
-Cat::~Cat()
+Brain::Brain(const Brain &obj)
 {
-	delete	this->_brain;
-	std::cout << "Cat destructor called" << std::endl;
+	*this = obj;
 }
 
-void Cat::makeSound() const
+Brain &Brain::operator=(const Brain &obj)
 {
-	std::cout << "Miaou" << std::endl;
+	if (this != &obj)
+	{
+		for (int i = 0; i < 100; i++)
+			this->_ideas[i] = obj._ideas[i];
+	}
+	return (*this);
+}
+
+Brain::~Brain()
+{
+	std::cout << "Brain destructor called" << std::endl;
 }

@@ -1,33 +1,25 @@
-#include "Cat.hpp"
+#include "WrongCat.hpp"
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/24 09:20:42 by gaducurt          #+#    #+#             */
-/*   Updated: 2026/02/24 09:41:24 by gaducurt         ###   ########.fr       */
+/*   Created: 2026/02/24 13:22:05 by gaducurt          #+#    #+#             */
+/*   Updated: 2026/02/24 13:22:06 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
-Cat::Cat()
+WrongCat::WrongCat()
 {
-    _type = "Cat";
-	_brain = new Brain;
-	std::cout << "Cat constructor called" << std::endl;
-	std::cout << "......................." << std::endl;
+	_type = "WrongCat";
+	std::cout << "WrongCat constructor called" << std::endl;
 }
 
-Cat::~Cat()
+WrongCat::~WrongCat()
 {
-	delete	this->_brain;
-	std::cout << "Cat destructor called" << std::endl;
-}
-
-void Cat::makeSound() const
-{
-	std::cout << "Miaou" << std::endl;
+	std::cout << "WrongCat destructor called" << std::endl;
 }

@@ -1,33 +1,29 @@
-#include "Cat.hpp"
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/24 09:20:42 by gaducurt          #+#    #+#             */
-/*   Updated: 2026/02/24 09:41:24 by gaducurt         ###   ########.fr       */
+/*   Created: 2026/02/24 09:21:01 by gaducurt          #+#    #+#             */
+/*   Updated: 2026/02/25 16:14:49 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#ifndef __DOG__
+	#define __DOG__
 
-Cat::Cat()
-{
-    _type = "Cat";
-	_brain = new Brain;
-	std::cout << "Cat constructor called" << std::endl;
-	std::cout << "......................." << std::endl;
-}
+	#include "AAnimal.hpp"
+	#include "Brain.hpp"
 
-Cat::~Cat()
-{
-	delete	this->_brain;
-	std::cout << "Cat destructor called" << std::endl;
-}
+	class	Dog : public AAnimal
+	{
+		private:
+			Brain	*_brain;
+		public:
+			Dog();
+			~Dog();
+			void makeSound() const;
+	};
 
-void Cat::makeSound() const
-{
-	std::cout << "Miaou" << std::endl;
-}
+#endif
