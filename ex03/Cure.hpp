@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 17:03:29 by gaducurt          #+#    #+#             */
-/*   Updated: 2026/02/25 17:26:23 by gaducurt         ###   ########.fr       */
+/*   Updated: 2026/02/26 14:05:02 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 	#define __CURE__
 
 	#include "AMateria.hpp"
+	#include "Character.hpp"
 
 	class	Cure : public AMateria
 	{
@@ -22,9 +23,9 @@
 			Cure(const Cure &obj);
 			Cure& operator=(const Cure &obj);
 			~Cure();
-			std::string const & getType() const;
+			std::string const &getType() const;
 			Cure* clone() const;
-			void use(ICharacter& target);
+			void use(Character& target);
 	};
 	
 #endif

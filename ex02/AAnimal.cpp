@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 09:20:26 by gaducurt          #+#    #+#             */
-/*   Updated: 2026/02/25 16:13:25 by gaducurt         ###   ########.fr       */
+/*   Updated: 2026/02/26 11:40:37 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 AAnimal::AAnimal() : _type("Undefined")
 {
-	std::cout << "Animal constructor called" << std::endl;
+	std::cout << "AAnimal constructor called" << std::endl;
 }
 
 AAnimal::AAnimal(const AAnimal &obj)
@@ -32,13 +32,13 @@ AAnimal &AAnimal::operator=(const AAnimal &obj)
 
 AAnimal::~AAnimal()
 {
-	std::cout << "Animal destructor called" << std::endl;
+	std::cout << "AAnimal destructor called" << std::endl;
 	std::cout << "......................." << std::endl;
 }
 
 void AAnimal::makeSound() const
 {
-	std::cout << "Animal sound" << std::endl;
+	std::cout << "AAnimal sound" << std::endl;
 }
 
 std::string	AAnimal::getType() const

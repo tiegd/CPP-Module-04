@@ -1,31 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.hpp                                            :+:      :+:    :+:   */
+/*   ICharacter.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/25 17:03:35 by gaducurt          #+#    #+#             */
-/*   Updated: 2026/02/26 14:04:53 by gaducurt         ###   ########.fr       */
+/*   Created: 2026/02/26 11:03:47 by gaducurt          #+#    #+#             */
+/*   Updated: 2026/02/26 11:03:48 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __ICE__
-	#define __ICE__
-
-	#include "AMateria.hpp"
-	#include "Character.hpp"
-
-	class	Ice : public AMateria
-	{
-		public:
-			Ice();
-			Ice(const Ice &obj);
-			Ice& operator=(const Ice &obj);
-			~Ice();
-			std::string const &getType() const;
-			Ice* clone() const;
-			void use(Character& target);
-	};
-
-#endif
