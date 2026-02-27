@@ -6,14 +6,15 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 11:03:38 by gaducurt          #+#    #+#             */
-/*   Updated: 2026/02/26 13:51:17 by gaducurt         ###   ########.fr       */
+/*   Updated: 2026/02/27 09:25:30 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef __ICHARACTER__
 	#define __ICHARACTER__
 
-	#include "AMateria.hpp"
+	#include <string>
+	class AMateria;
 
 	class ICharacter
 	{

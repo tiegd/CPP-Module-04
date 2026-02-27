@@ -1,31 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.hpp                                           :+:      :+:    :+:   */
+/*   Vector.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/25 17:03:29 by gaducurt          #+#    #+#             */
-/*   Updated: 2026/02/27 09:28:31 by gaducurt         ###   ########.fr       */
+/*   Created: 2026/02/27 12:14:16 by gaducurt          #+#    #+#             */
+/*   Updated: 2026/02/27 12:29:39 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __CURE__
-	#define __CURE__
+#ifndef __VECTOR__
+	#define __VECTOR__
 
-	#include "AMateria.hpp"
-	#include "Character.hpp"
-
-	class	Cure : public AMateria
-	{
-		public:
-			Cure();
-			Cure(const Cure &obj);
-			Cure& operator=(const Cure &obj);
-			~Cure();
-			std::string const &getType() const;
-			Cure* clone() const;
-			void use(ICharacter& target);
-	};
+	#include <cstdlib>
 	
+	class	Vector
+	{
+		
+		private:
+			void	**array;
+			size_t	len;
+			size_t	size_type;
+			size_t	capacity;
+		public:
+			Vector();
+			Vector(size_t val_size);
+			Vector(const Vector &obj);
+			Vector& operator=(const Vector &obj);
+			~Vector();
+			void	init(size_t val_size);
+			int		realloc();
+			int		add();
+			void	free();
+			void	memcp()
+	};
+
 #endif

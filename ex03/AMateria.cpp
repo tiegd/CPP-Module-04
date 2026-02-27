@@ -21,12 +21,15 @@ AMateria::AMateria() : _type("Default name")
 AMateria::AMateria(const AMateria &obj)
 {
 	std::cout << "AMateria copy constructor called" << std::endl;
+	*this = obj;
 }
 
 AMateria &AMateria::operator=(const AMateria &obj)
 {
 	std::cout << "AMateria copy assignment operator called" << std::endl;
-
+	if (this != &obj)
+		this->_type = obj._type;
+	return (*this);
 }
 
 AMateria::~AMateria()
@@ -36,14 +39,15 @@ AMateria::~AMateria()
 
 std::string const &AMateria::getType() const
 {
-    return (_name);
+    return (_type);
 }
 
 AMateria *AMateria::clone() const
 {
-    return (nullptr);
+	return (NULL);
 }
 
 void AMateria::use(ICharacter &target)
 {
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl; 
 }

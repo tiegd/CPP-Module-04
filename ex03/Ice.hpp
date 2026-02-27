@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 17:03:35 by gaducurt          #+#    #+#             */
-/*   Updated: 2026/02/26 14:04:53 by gaducurt         ###   ########.fr       */
+/*   Updated: 2026/02/27 09:28:28 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 			~Ice();
 			std::string const &getType() const;
 			Ice* clone() const;
-			void use(Character& target);
+			void use(ICharacter& target);
 	};
 
 #endif

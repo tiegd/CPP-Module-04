@@ -1,4 +1,3 @@
-#include "Character.hpp"
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -7,12 +6,13 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 14:12:36 by gaducurt          #+#    #+#             */
-/*   Updated: 2026/02/26 14:12:42 by gaducurt         ###   ########.fr       */
+/*   Updated: 2026/02/27 12:11:34 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string>
 #include "AMateria.hpp"
+#include "Character.hpp"
 
 Character::Character() : _nbMateria(0), _name("none")
 {
@@ -41,6 +41,7 @@ Character &Character::operator=(const Character &obj)
 Character::~Character()
 {
 	std::cout << "Character destructor called" << std::endl;
+	
 }
 
 std::string const &Character::getName() const
@@ -50,11 +51,6 @@ std::string const &Character::getName() const
 
 void Character::equip(AMateria *m)
 {
-	// if (this->_nbMateria < 4)
-	// {
-	// 	this->_inventory[this->_nbMateria] = m;
-	// 	this->_nbMateria++;
-	// }
 	if (_nbMateria >= 4)
 		return ;
 	for (int i = 0; i < 4; i++)
@@ -71,24 +67,11 @@ void Character::unequip(int idx)
 {
 	if (idx >= 4)
 		return ;
-	// for (int i = 0; i < idx; i++)
-	// {
-	// 	if (i == idx)
-	// 	{
-	// 	}
-	// }
-	if (_inventory[idx])
-		new_lst(*_inventory[idx]);
-	
+	this->_inventory[idx] = NULL;
 }
 
-void Character::use(int idx, Character &target)
+void Character::use(int idx, ICharacter &target)
 {
-	target._inventory[idx]->use(target);
+	this->_inventory[idx]->use(target);
 }
 
-void Character::new_lst(AMateria &mat)
-{
-	lst *node = new lst;
-	node->materia = mat;
-}

@@ -6,7 +6,7 @@ CXXFLAGS = -Wall -Wextra -Werror -MD -std=c++98 -g3
 
 BIN = bin/
 			
-SRC =	main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp	\
+SRC =	main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp ICharacter.cpp IMateriaSource.cpp MateriaSource.cpp	\
 
 OBJ = $(SRC: .cpp=.o)
 OBJ := $(addprefix $(BIN), $(SRC:.cpp=.o))
