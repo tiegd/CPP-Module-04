@@ -36,22 +36,32 @@ Vector::~Vector()
 
 void Vector::init(size_t val_size)
 {
-	this->capacity = 0;
-	this->len = 0;
-	this->array = NULL;
-	this->size_type = val_size;
+	this->_capacity = 0;
+	this->_len = 0;
+	this->_array = NULL;
+	this->_size_type = val_size;
 }
 
 int Vector::realloc()
 {
-    return 0;
+	void	*new_tab;
+
+	if (this->_capacity == 0)
+		_capacity = 4;
+	else if (this->_capacity > 0)
+		_capacity *= 2;
+	new_tab = new ;
 }
 
 int Vector::add()
 {
-    return 0;
+	return 0;
 }
 
 void Vector::free()
+{
+}
+
+void Vector::memcp()
 {
 }

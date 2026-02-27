@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/27 12:14:16 by gaducurt          #+#    #+#             */
-/*   Updated: 2026/02/27 12:29:39 by gaducurt         ###   ########.fr       */
+/*   Updated: 2026/02/27 14:17:34 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@
 	{
 		
 		private:
-			void	**array;
-			size_t	len;
-			size_t	size_type;
-			size_t	capacity;
+			void	**_array;
+			size_t	_len;
+			size_t	_size_type;
+			size_t	_capacity;
 		public:
 			Vector();
 			Vector(size_t val_size);
@@ -33,7 +33,7 @@
 			int		realloc();
 			int		add();
 			void	free();
-			void	memcp()
+			void	memcp();
 	};
 
 #endif
