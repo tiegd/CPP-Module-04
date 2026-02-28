@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 13:51:24 by gaducurt          #+#    #+#             */
-/*   Updated: 2026/02/27 12:12:00 by gaducurt         ###   ########.fr       */
+/*   Updated: 2026/02/28 14:10:34 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,15 @@
 	class Character : public ICharacter
 	{
 		private:
+			typedef struct	s_lst
+			{
+				AMateria		*_content;
+				struct	s_lst	*_next;
+			}				t_lst;
 			int								_nbMateria;
 			std::string						_name;
 			AMateria						*_inventory[4];
+			static t_lst							*_floor;
 		public:
 			Character();
 			Character(std::string name);

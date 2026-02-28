@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/27 12:14:16 by gaducurt          #+#    #+#             */
-/*   Updated: 2026/02/27 14:17:34 by gaducurt         ###   ########.fr       */
+/*   Updated: 2026/02/28 13:34:06 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@
 	#define __VECTOR__
 
 	#include <cstdlib>
+	#include "AMateria.hpp"
 	
 	class	Vector
 	{
 		
 		private:
-			void	**_array;
+			AMateria **_array;
 			size_t	_len;
 			size_t	_size_type;
 			size_t	_capacity;

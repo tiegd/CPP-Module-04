@@ -44,17 +44,37 @@ void Vector::init(size_t val_size)
 
 int Vector::realloc()
 {
-	void	*new_tab;
+	AMateria	**new_tab;
 
 	if (this->_capacity == 0)
 		_capacity = 4;
 	else if (this->_capacity > 0)
 		_capacity *= 2;
-	new_tab = new ;
+	try
+	{
+		new_tab = new AMateria*[_capacity * sizeof (AMateria)];
+		for (int i = 0; this->_array[i]; i++)
+			new_tab[i] = _array[i];
+		if (this->_capacity)
+			delete[] this->_array;
+		this->_array = new_tab;
+		return (0);
+	}
+	catch(std::bad_alloc &ba)
+	{
+		return (1);
+	}
 }
 
 int Vector::add()
 {
+	// if (this->_len == this->_capacity)
+	// 	if (this->realloc() == 1)
+	// 		return (1);
+	// for (int i = 0; this->_capacity; i++)
+	// {
+		
+	// }
 	return 0;
 }
 

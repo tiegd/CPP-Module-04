@@ -6,13 +6,15 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 14:12:36 by gaducurt          #+#    #+#             */
-/*   Updated: 2026/02/27 12:11:34 by gaducurt         ###   ########.fr       */
+/*   Updated: 2026/02/28 14:13:20 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string>
 #include "AMateria.hpp"
 #include "Character.hpp"
+
+t_lst Character::_floor = NULL;
 
 Character::Character() : _nbMateria(0), _name("none")
 {
@@ -65,13 +67,29 @@ void Character::equip(AMateria *m)
 
 void Character::unequip(int idx)
 {
+	t_lst	*new_lst;
+	t_lst	*tmp;
+
 	if (idx >= 4)
 		return ;
-	this->_inventory[idx] = NULL;
+	try
+	{
+		new_lst = new t_lst;
+		new_lst->_content = this->_inventory[idx];
+		new_lst->_next = NULL;
+		this->_inventory[idx] = NULL;
+	}
+	catch(std::bad_alloc &ba)
+	{
+		return ;
+	}
+	tmp = _floor;
+	while (tmp->_next)
+		tmp = tmp->_next;
+	tmp->_next = new_lst;
 }
 
 void Character::use(int idx, ICharacter &target)
 {
 	this->_inventory[idx]->use(target);
 }
-
