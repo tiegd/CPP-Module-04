@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 16:09:38 by gaducurt          #+#    #+#             */
-/*   Updated: 2026/02/27 11:16:17 by gaducurt         ###   ########.fr       */
+/*   Updated: 2026/03/02 17:28:10 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,42 @@
 int main()
 {
 	IMateriaSource* src = new MateriaSource();
+	std::cout << "---------------------------" << std::endl;
 	src->learnMateria(new Ice());
+	std::cout << "---------------------------" << std::endl;
 	src->learnMateria(new Cure());
+	std::cout << "---------------------------" << std::endl;
+	
 	ICharacter* me = new Character("me");
+	std::cout << "---------------------------" << std::endl;
+	
 	AMateria* tmp;
 	tmp = src->createMateria("ice");
 	me->equip(tmp);
 	tmp = src->createMateria("cure");
 	me->equip(tmp);
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
+	tmp = src->createMateria("cure");
+	me->equip(tmp);
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
+	tmp = src->createMateria("cure");
+	me->equip(tmp);
+	
 	ICharacter* bob = new Character("bob");
+	std::cout << "---------------------------" << std::endl;
+	
 	me->use(0, *bob);
 	me->use(1, *bob);
+	
 	delete bob;
+	std::cout << "---------------------------" << std::endl;
 	delete me;
+	std::cout << "---------------------------" << std::endl;
+	Character::clear_lst();
+	std::cout << "---------------------------" << std::endl;
 	delete src;
+	std::cout << "---------------------------" << std::endl;
 	return 0;
 }

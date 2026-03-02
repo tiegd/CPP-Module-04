@@ -16,6 +16,9 @@
 
 MateriaSource::MateriaSource()
 {
+	std::cout << "MateriaSource Constructor called" << std::endl;
+	for (int i = 0; i < 4; i++)
+		this->_inventory[i] = NULL;
 }
 
 MateriaSource::MateriaSource(const MateriaSource &obj)
@@ -35,13 +38,16 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &obj)
 MateriaSource::~MateriaSource()
 {
 	std::cout << "MateriaSource Destructor called" << std::endl;
+	for (int i = 0; i < 4; i++)
+		delete this->_inventory[i];
 }
 
 void MateriaSource::learnMateria(AMateria* materia)
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (!_inventory[i])
+		std::cout << i << std::endl;
+		if (this->_inventory[i] == NULL)
 		{
 			this->_inventory[i] = materia;
 			break;

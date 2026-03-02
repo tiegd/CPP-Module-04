@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 13:51:24 by gaducurt          #+#    #+#             */
-/*   Updated: 2026/02/28 14:10:34 by gaducurt         ###   ########.fr       */
+/*   Updated: 2026/03/02 16:01:40 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,20 @@
 	#define __CHARACTER__
 
 	#include "ICharacter.hpp"
-	#include <vector>
 	
+	typedef struct	s_lst
+	{
+		AMateria		*_content;
+		struct	s_lst	*_next;
+	}				t_lst;
+
 	class Character : public ICharacter
 	{
 		private:
-			typedef struct	s_lst
-			{
-				AMateria		*_content;
-				struct	s_lst	*_next;
-			}				t_lst;
 			int								_nbMateria;
 			std::string						_name;
 			AMateria						*_inventory[4];
-			static t_lst							*_floor;
+			static t_lst					*_floor;
 		public:
 			Character();
 			Character(std::string name);
@@ -38,6 +38,12 @@
 			void equip(AMateria* m);
 			void unequip(int idx);
 			void use(int idx, ICharacter& target);
+			static t_lst* getFloor();
+			static void addFloor(t_lst *node);
+			static void clear_lst();
+
+			void changeName(std::string name);
 	};
 	
 #endif
+
