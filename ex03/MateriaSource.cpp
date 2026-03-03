@@ -1,4 +1,3 @@
-#include "MateriaSource.hpp"
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -7,12 +6,13 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/27 10:13:28 by gaducurt          #+#    #+#             */
-/*   Updated: 2026/02/27 10:13:29 by gaducurt         ###   ########.fr       */
+/*   Updated: 2026/03/03 16:07:46 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
 #include "Cure.hpp"
+#include "MateriaSource.hpp"
 
 MateriaSource::MateriaSource()
 {
@@ -31,13 +31,21 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &obj)
 {
 	std::cout << "MateriaSource Copy assignment operator called" << std::endl;
 	if (this != &obj)
-		*this->_inventory = *obj._inventory;
+	{
+		for (int i = 0; i < 4; i++)
+		{
+			if (obj._inventory[i])
+				this->_inventory[i] = obj._inventory[i]->clone(); 
+			else
+				this->_inventory[i] = NULL;
+		}
+	}
 	return (*this);
 }
 
 MateriaSource::~MateriaSource()
 {
-	std::cout << "MateriaSource Destructor called" << std::endl;
+	std::cout << RED << "MateriaSource Destructor called" << RESET << std::endl;
 	for (int i = 0; i < 4; i++)
 		delete this->_inventory[i];
 }
@@ -46,7 +54,6 @@ void MateriaSource::learnMateria(AMateria* materia)
 {
 	for (int i = 0; i < 4; i++)
 	{
-		std::cout << i << std::endl;
 		if (this->_inventory[i] == NULL)
 		{
 			this->_inventory[i] = materia;
@@ -57,15 +64,21 @@ void MateriaSource::learnMateria(AMateria* materia)
 
 AMateria *MateriaSource::createMateria(std::string const &type)
 {
-    if (type == "ice")
+	for (int i = 0; i < 4; i++)
 	{
-		Ice *ice = new Ice();
-		return (ice);
-	}
-	else if (type == "cure")
-	{
-		Cure *cure = new Cure();
-		return (cure);
+		if (this->_inventory[i])
+		{
+			if (type == "ice" && this->_inventory[i]->getType() == "ice")
+			{
+					Ice *ice = new Ice();
+					return (ice);
+			}
+			else if (type == "cure" && this->_inventory[i]->getType() == "cure")
+			{
+				Cure *cure = new Cure();
+				return (cure);
+			}
+		}
 	}
 	return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 14:12:36 by gaducurt          #+#    #+#             */
-/*   Updated: 2026/03/02 17:26:07 by gaducurt         ###   ########.fr       */
+/*   Updated: 2026/03/03 16:05:24 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_lst *Character::_floor = NULL;
 
 Character::Character() : _nbMateria(0), _name("none")
 {
-	std::cout << "Character constructor called" << std::endl;
+	std::cout << GREEN << "Character constructor called" << RESET << std::endl;
 	for (int i = 0; i < 4; i++)
 		this->_inventory[i] = NULL;
 }
@@ -39,14 +39,25 @@ Character::Character(const Character &obj)
 Character &Character::operator=(const Character &obj)
 {
     std::cout << "Character copy assignment operator called" << std::endl;
+	
 	if (this != &obj)
+	{
 		this->_name = obj._name;
+		this->_nbMateria = obj._nbMateria;
+		for (int i = 0; i < 4; i++)
+		{
+			if (obj._inventory[i])
+				this->_inventory[i] = obj._inventory[i]->clone(); 
+			else
+				this->_inventory[i] = NULL;
+		}
+	}
 	return (*this);
 }
 
 Character::~Character()
 {
-	std::cout << "Character destructor called" << std::endl;
+	std::cout << RED << "Character destructor called" << RESET << std::endl;
 	for (int i = 0; i < 4; i++)
 		delete this->_inventory[i];
 }
@@ -59,10 +70,12 @@ std::string const &Character::getName() const
 void Character::equip(AMateria *m)
 {
 	if (_nbMateria >= 4)
+	{
+		delete m;
 		return ;
+	}
 	for (int i = 0; i < 4; i++)
 	{
-		std::cout << i << std::endl;
 		if (this->_inventory[i] == NULL)
 		{
 			this->_inventory[i] = m;
@@ -78,24 +91,31 @@ void Character::unequip(int idx)
 
 	if (idx >= 4)
 		return ;
+	if (!this->_inventory[idx])
+		return ;
 	try
 	{
 		new_lst = new t_lst;
 		new_lst->_content = this->_inventory[idx];
 		new_lst->_next = NULL;
 		this->_inventory[idx] = NULL;
+		this->_nbMateria--;
+		addFloor(new_lst);
 	}
 	catch(std::bad_alloc &ba)
 	{
 		return ;
 	}
-	addFloor(new_lst);
 }
 
 void	Character::addFloor(t_lst *node)
 {
-	t_lst	*tmp = getFloor();
-
+	if (!_floor)
+	{
+		_floor = node;
+		return;
+	}
+	t_lst	*tmp = _floor;
 	while (tmp->_next)
 		tmp = tmp->_next;
 	tmp->_next = node;
@@ -111,11 +131,13 @@ void	Character::clear_lst()
 		while (tmp)
 		{
 			buff = tmp->_next;
+			delete tmp->_content;
 			delete tmp;
 			tmp = buff;
 		}
 	}
-	std::cout << "The floor has been cleaned" << std::endl;
+	_floor = NULL;
+	std::cout << YELLOW << "The floor has been cleaned" << RESET << std::endl;
 }
 
 t_lst*	Character::getFloor()

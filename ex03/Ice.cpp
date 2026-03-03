@@ -16,7 +16,7 @@
 Ice::Ice()
 {
 	_type = "ice";
-	std::cout << "Ice constructor called" << std::endl;
+	std::cout << GREEN << "Ice constructor called" << RESET << std::endl;
 }
 
 Ice::Ice(const Ice &obj)
@@ -35,7 +35,7 @@ Ice &Ice::operator=(const Ice &obj)
 
 Ice::~Ice()
 {
-	std::cout << "Ice destructor called" << std::endl;
+	std::cout << RED << "Ice destructor called" << RESET << std::endl;
 }
 
 std::string const &Ice::getType() const
@@ -46,10 +46,11 @@ std::string const &Ice::getType() const
 Ice* Ice::clone() const
 {
 	Ice *res = new Ice();
+	res->_type = this->_type;
 	return (res);
 }
 
 void Ice::use(ICharacter &target)
 {
-	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
+	std::cout << YELLOW << "* shoots an ice bolt at " << target.getName() << " *" << RESET << std::endl;
 }

@@ -15,7 +15,7 @@
 
 AMateria::AMateria() : _type("Default name")
 {
-	std::cout << "AMateria constructor called" << std::endl;
+	std::cout << BLUE << "AMateria constructor called" << RESET << std::endl;
 }
 
 AMateria::AMateria(const AMateria &obj)
@@ -34,12 +34,12 @@ AMateria &AMateria::operator=(const AMateria &obj)
 
 AMateria::~AMateria()
 {
-	std::cout << "AMateria destructor called" << std::endl;
+	std::cout << BLUE << "AMateria destructor called" << RESET << std::endl;
 }
 
 std::string const &AMateria::getType() const
 {
-    return (_type);
+	return (_type);
 }
 
 AMateria *AMateria::clone() const
@@ -49,5 +49,6 @@ AMateria *AMateria::clone() const
 
 void AMateria::use(ICharacter &target)
 {
-	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl; 
+	(void) target;
+	return;
 }

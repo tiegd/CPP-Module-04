@@ -14,7 +14,7 @@
 Cure::Cure()
 {
     _type = "cure";
-	std::cout << "Cure constructor called" << std::endl;
+	std::cout << GREEN << "Cure constructor called" << RESET << std::endl;
 }
 
 Cure::Cure(const Cure &obj)
@@ -33,7 +33,7 @@ Cure &Cure::operator=(const Cure &obj)
 
 Cure::~Cure()
 {
-	std::cout << "Cure destructor called" << std::endl;
+	std::cout << RED << "Cure destructor called" << RESET << std::endl;
 }
 
 std::string const &Cure::getType() const
@@ -44,10 +44,11 @@ std::string const &Cure::getType() const
 Cure *Cure::clone() const
 {
     Cure *res = new Cure();
+	res->_type = this->_type;
 	return (res);
 }
 
 void Cure::use(ICharacter &target)
 {
-	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl; 
+	std::cout << YELLOW << "* heals " << target.getName() << "'s wounds *" << RESET << std::endl; 
 }

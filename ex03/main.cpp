@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 16:09:38 by gaducurt          #+#    #+#             */
-/*   Updated: 2026/03/02 17:28:10 by gaducurt         ###   ########.fr       */
+/*   Updated: 2026/03/03 11:46:53 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,13 @@ int main()
 	tmp = src->createMateria("ice");
 	me->equip(tmp);
 	tmp = src->createMateria("cure");
+	me->unequip(3);
 	me->equip(tmp);
 	tmp = src->createMateria("ice");
 	me->equip(tmp);
 	tmp = src->createMateria("cure");
 	me->equip(tmp);
+	me->unequip(2);
 	tmp = src->createMateria("ice");
 	me->equip(tmp);
 	tmp = src->createMateria("cure");
@@ -46,14 +48,14 @@ int main()
 	
 	me->use(0, *bob);
 	me->use(1, *bob);
+	std::cout << "---------------------------" << std::endl;
 	
 	delete bob;
 	std::cout << "---------------------------" << std::endl;
 	delete me;
 	std::cout << "---------------------------" << std::endl;
-	Character::clear_lst();
-	std::cout << "---------------------------" << std::endl;
 	delete src;
 	std::cout << "---------------------------" << std::endl;
+	Character::clear_lst();
 	return 0;
 }
