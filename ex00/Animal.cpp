@@ -20,11 +20,13 @@ Animal::Animal() : _type("Undefined")
 
 Animal::Animal(const Animal &obj)
 {
+    std::cout << "Animal copy constructor called" << std::endl;
 	*this = obj;
 }
 
 Animal &Animal::operator=(const Animal &obj)
 {
+    std::cout << "Animal copy assignment operator called" << std::endl;
 	if (this != &obj)
 		this->_type = obj._type;
 	return (*this);

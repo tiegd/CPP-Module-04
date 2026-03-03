@@ -15,7 +15,7 @@
 
 Animal::Animal() : _type("Undefined")
 {
-	std::cout << "Animal constructor called" << std::endl;
+	std::cout << GREEN << "Animal constructor called" << RESET << std::endl;
 }
 
 Animal::Animal(const Animal &obj)
@@ -32,7 +32,7 @@ Animal &Animal::operator=(const Animal &obj)
 
 Animal::~Animal()
 {
-	std::cout << "Animal destructor called" << std::endl;
+	std::cout << GREEN << "Animal destructor called" << RESET << std::endl;
 	std::cout << "......................." << std::endl;
 }
 

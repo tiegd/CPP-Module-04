@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 09:16:50 by gaducurt          #+#    #+#             */
-/*   Updated: 2026/02/24 14:57:44 by gaducurt         ###   ########.fr       */
+/*   Updated: 2026/03/03 17:56:56 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,8 @@ int main()
 	std::cout << wanimal.getType() << " " << std::endl;
 	std::cout << wcat.getType() << " " << std::endl;
 	std::cout << "\n-----------------------\n" << std::endl;
+
+	Dog dog;
+	Dog cpy(dog);
 	return 0;
 }

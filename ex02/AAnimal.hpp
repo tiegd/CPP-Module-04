@@ -6,12 +6,12 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 09:20:36 by gaducurt          #+#    #+#             */
-/*   Updated: 2026/02/25 16:14:13 by gaducurt         ###   ########.fr       */
+/*   Updated: 2026/03/03 17:41:37 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __AANIMAL__
-	#define __AANIMAL__
+#ifndef __ANIMAL__
+	#define __ANIMAL__
 
 	#include <string>
 
@@ -29,3 +29,9 @@
 	};
 
 #endif
+
+#define RED     "\033[31m"
+#define GREEN   "\033[32m"
+#define YELLOW  "\033[33m"
+#define BLUE    "\033[34m"
+#define RESET   "\033[0m"
