@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 16:09:35 by gaducurt          #+#    #+#             */
-/*   Updated: 2026/03/04 11:39:58 by gaducurt         ###   ########.fr       */
+/*   Updated: 2026/03/04 13:19:55 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 	{
 		protected:
 			std::string	_type;
+			bool	_isUsed;
 		public:
 			AMateria();
 			AMateria(const AMateria &obj);
@@ -29,6 +30,8 @@
 			virtual std::string const& getType() const;
 			virtual AMateria* clone() const = 0;
 			virtual void use(ICharacter& target);
+			virtual bool getUsed() const;
+			virtual void setUsed();
 	};
     
 #endif

@@ -16,6 +16,7 @@
 AMateria::AMateria() : _type("Default name")
 {
 	std::cout << BLUE << "AMateria constructor called" << RESET << std::endl;
+	_isUsed = false;
 }
 
 AMateria::AMateria(const AMateria &obj)
@@ -51,4 +52,14 @@ void AMateria::use(ICharacter &target)
 {
 	(void) target;
 	return;
+}
+
+bool AMateria::getUsed() const
+{
+	return (this->_isUsed);
+}
+
+void AMateria::setUsed()
+{
+	this->_isUsed = true;
 }

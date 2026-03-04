@@ -15,8 +15,9 @@
 
 Ice::Ice()
 {
-	_type = "ice";
 	std::cout << PURPLE << "Ice constructor called" << RESET << std::endl;
+	_type = "ice";
+	_isUsed = false;
 }
 
 Ice::Ice(const Ice &obj)
@@ -53,4 +54,14 @@ Ice* Ice::clone() const
 void Ice::use(ICharacter &target)
 {
 	std::cout << YELLOW << "* shoots an ice bolt at " << target.getName() << " *" << RESET << std::endl;
+}
+
+bool Ice::getUsed() const
+{
+	return (this->_isUsed);
+}
+
+void Ice::setUsed()
+{
+	this->_isUsed = true;
 }

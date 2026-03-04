@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 14:12:36 by gaducurt          #+#    #+#             */
-/*   Updated: 2026/03/04 11:42:08 by gaducurt         ###   ########.fr       */
+/*   Updated: 2026/03/04 13:45:00 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,10 @@ Character::~Character()
 {
 	std::cout << GREEN << "Character destructor called" << RESET << std::endl;
 	for (int i = 0; i < 4; i++)
-		delete this->_inventory[i];
+	{
+		if (this->_inventory[i])
+			delete this->_inventory[i];
+	}
 }
 
 std::string const &Character::getName() const
@@ -71,6 +74,8 @@ std::string const &Character::getName() const
 
 void Character::equip(AMateria *m)
 {
+	if (m->getUsed())
+		return;
 	if (_nbMateria >= 4)
 	{
 		delete m;
@@ -80,6 +85,7 @@ void Character::equip(AMateria *m)
 	{
 		if (this->_inventory[i] == NULL)
 		{
+			m->setUsed();
 			this->_inventory[i] = m;
 			this->_nbMateria++;
 			break;

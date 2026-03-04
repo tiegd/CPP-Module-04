@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 16:09:38 by gaducurt          #+#    #+#             */
-/*   Updated: 2026/03/04 11:37:38 by gaducurt         ###   ########.fr       */
+/*   Updated: 2026/03/04 13:45:04 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int main()
 	tmp = src->createMateria("ice");
 	me->equip(tmp);
 	tmp = src->createMateria("cure");
+	me->equip(tmp);
 	me->equip(tmp);
 	me->unequip(2);
 	tmp = src->createMateria("ice");

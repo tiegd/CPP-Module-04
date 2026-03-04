@@ -13,8 +13,9 @@
 
 Cure::Cure()
 {
-    _type = "cure";
 	std::cout << YELLOW << "Cure constructor called" << RESET << std::endl;
+    _type = "cure";
+	_isUsed = false;
 }
 
 Cure::Cure(const Cure &obj)
@@ -51,4 +52,14 @@ Cure *Cure::clone() const
 void Cure::use(ICharacter &target)
 {
 	std::cout << YELLOW << "* heals " << target.getName() << "'s wounds *" << RESET << std::endl; 
+}
+
+bool Cure::getUsed() const
+{
+	return (this->_isUsed);
+}
+
+void Cure::setUsed()
+{
+	this->_isUsed = true;
 }
