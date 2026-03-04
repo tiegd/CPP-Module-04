@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 16:09:38 by gaducurt          #+#    #+#             */
-/*   Updated: 2026/03/03 11:46:53 by gaducurt         ###   ########.fr       */
+/*   Updated: 2026/03/04 11:37:38 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,25 @@ int main()
 	std::cout << "---------------------------" << std::endl;
 	delete me;
 	std::cout << "---------------------------" << std::endl;
-	delete src;
+	Character paul("paul");
+	tmp = src->createMateria("ice");
+	paul.equip(tmp);
 	std::cout << "---------------------------" << std::endl;
+	tmp = src->createMateria("cure");
+	paul.equip(tmp);
+	std::cout << "---------------------------" << std::endl;
+	paul.displayInventory();
+	std::cout << "---------------------------" << std::endl;
+	Character mlouis(paul);
+	std::cout << "---------------------------" << std::endl;
+	tmp = src->createMateria("ice");
+	mlouis.equip(tmp);
+	std::cout << "---------------------------" << std::endl;
+	paul.displayInventory();
+	std::cout << "---------------------------" << std::endl;
+	mlouis.displayInventory();
+	std::cout << "---------------------------" << std::endl;
+	delete src;
 	Character::clear_lst();
 	return 0;
 }

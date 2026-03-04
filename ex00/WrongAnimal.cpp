@@ -15,7 +15,7 @@
 
 WrongAnimal::WrongAnimal() : _type("Wrong Undefined")
 {
-	std::cout << "WrongAnimal constructor called" << std::endl;
+	std::cout << YELLOW << "WrongAnimal constructor called" << RESET << std::endl;
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal &obj)
@@ -32,12 +32,12 @@ WrongAnimal &WrongAnimal::operator=(const WrongAnimal &obj)
 
 WrongAnimal::~WrongAnimal()
 {
-	std::cout << "WrongAnimal destructor called" << std::endl;
+	std::cout << YELLOW << "WrongAnimal destructor called" << RESET << std::endl;
 }
 
 void WrongAnimal::makeSound() const
 {
-	std::cout << "WrongAnimal sound" << std::endl;
+	std::cout << YELLOW << "WrongAnimal sound" << RESET << std::endl;
 }
 
 std::string WrongAnimal::getType() const

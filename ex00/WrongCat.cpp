@@ -16,10 +16,15 @@
 WrongCat::WrongCat()
 {
 	_type = "WrongCat";
-	std::cout << "WrongCat constructor called" << std::endl;
+	std::cout << PURPLE << "WrongCat constructor called" << RESET << std::endl;
 }
 
 WrongCat::~WrongCat()
 {
-	std::cout << "WrongCat destructor called" << std::endl;
+	std::cout << PURPLE << "WrongCat destructor called" << RESET << std::endl;
+}
+
+void WrongCat::makeSound() const
+{
+	std::cout << YELLOW << "WrongCat sound" << RESET << std::endl;
 }

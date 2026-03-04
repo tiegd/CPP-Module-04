@@ -20,13 +20,13 @@ AMateria::AMateria() : _type("Default name")
 
 AMateria::AMateria(const AMateria &obj)
 {
-	std::cout << "AMateria copy constructor called" << std::endl;
+	std::cout << BLUE << "AMateria copy constructor called" << RESET << std::endl;
 	*this = obj;
 }
 
 AMateria &AMateria::operator=(const AMateria &obj)
 {
-	std::cout << "AMateria copy assignment operator called" << std::endl;
+	std::cout << BLUE << "AMateria copy assignment operator called" << RESET << std::endl;
 	if (this != &obj)
 		this->_type = obj._type;
 	return (*this);

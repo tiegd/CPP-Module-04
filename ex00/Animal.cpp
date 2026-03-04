@@ -15,18 +15,18 @@
 
 Animal::Animal() : _type("Undefined")
 {
-	std::cout << "Animal constructor called" << std::endl;
+	std::cout << GREEN << "Animal constructor called" << RESET << std::endl;
 }
 
 Animal::Animal(const Animal &obj)
 {
-    std::cout << "Animal copy constructor called" << std::endl;
+    std::cout << GREEN << "Animal copy constructor called" << RESET << std::endl;
 	*this = obj;
 }
 
 Animal &Animal::operator=(const Animal &obj)
 {
-    std::cout << "Animal copy assignment operator called" << std::endl;
+    std::cout << GREEN << "Animal copy assignment operator called" << RESET << std::endl;
 	if (this != &obj)
 		this->_type = obj._type;
 	return (*this);
@@ -34,12 +34,12 @@ Animal &Animal::operator=(const Animal &obj)
 
 Animal::~Animal()
 {
-	std::cout << "Animal destructor called" << std::endl;
+	std::cout << GREEN << "Animal destructor called" << RESET << std::endl;
 }
 
 void Animal::makeSound() const
 {
-	std::cout << "Animal sound" << std::endl;
+	std::cout << GREEN << "Animal sound" << RESET << std::endl;
 }
 
 std::string	Animal::getType() const

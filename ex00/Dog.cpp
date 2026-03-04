@@ -16,15 +16,15 @@
 Dog::Dog()
 {
     _type = "Dog";
-	std::cout << "Dog constructor called" << std::endl;
+	std::cout << RED << "Dog constructor called" << RESET << std::endl;
 }
 
 Dog::~Dog()
 {
-	std::cout << "Dog destructor called" << std::endl;
+	std::cout << RED << "Dog destructor called" << RESET << std::endl;
 }
 
 void Dog::makeSound() const
 {
-	std::cout << "Waff" << std::endl;
+	std::cout << RED << "Waff" << RESET << std::endl;
 }

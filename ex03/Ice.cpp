@@ -16,18 +16,18 @@
 Ice::Ice()
 {
 	_type = "ice";
-	std::cout << GREEN << "Ice constructor called" << RESET << std::endl;
+	std::cout << PURPLE << "Ice constructor called" << RESET << std::endl;
 }
 
 Ice::Ice(const Ice &obj)
 {
 	*this = obj;
-	std::cout << "Ice copy constructor called" << std::endl;
+	std::cout << PURPLE << "Ice copy constructor called" << RESET << std::endl;
 }
 
 Ice &Ice::operator=(const Ice &obj)
 {
-	std::cout << "Ice copy assignment operator called" << std::endl;
+	std::cout << PURPLE << "Ice copy assignment operator called" << RESET << std::endl;
 	if (this != &obj)
 		this->_type = obj._type;
 	return (*this);
@@ -35,7 +35,7 @@ Ice &Ice::operator=(const Ice &obj)
 
 Ice::~Ice()
 {
-	std::cout << RED << "Ice destructor called" << RESET << std::endl;
+	std::cout << PURPLE << "Ice destructor called" << RESET << std::endl;
 }
 
 std::string const &Ice::getType() const

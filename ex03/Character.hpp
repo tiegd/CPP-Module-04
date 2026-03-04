@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 13:51:24 by gaducurt          #+#    #+#             */
-/*   Updated: 2026/03/03 11:49:02 by gaducurt         ###   ########.fr       */
+/*   Updated: 2026/03/04 11:00:21 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,7 @@
 			static t_lst* getFloor();
 			static void addFloor(t_lst *node);
 			static void clear_lst();
-
-			void changeName(std::string name);
+			void displayInventory();
 	};
 	
 #endif

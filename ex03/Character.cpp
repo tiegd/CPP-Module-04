@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 14:12:36 by gaducurt          #+#    #+#             */
-/*   Updated: 2026/03/03 16:05:24 by gaducurt         ###   ########.fr       */
+/*   Updated: 2026/03/04 11:42:08 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,20 +25,20 @@ Character::Character() : _nbMateria(0), _name("none")
 
 Character::Character(std::string name) : _nbMateria(0), _name(name)
 {
-	std::cout << "Character constructor called" << std::endl;
+	std::cout << GREEN << "Character constructor called" << RESET << std::endl;
 	for (int i = 0; i < 4; i++)
 		this->_inventory[i] = NULL;
 }
 
-Character::Character(const Character &obj)
+Character::Character(const Character &obj) : _inventory() //set the array to NULL;
 {
 	*this = obj;
-	std::cout << "Character copy constructor called" << std::endl;
+	std::cout << GREEN << "Character copy constructor called" << RESET << std::endl;
 }
 
 Character &Character::operator=(const Character &obj)
 {
-    std::cout << "Character copy assignment operator called" << std::endl;
+    std::cout << GREEN << "Character copy assignment operator called" << RESET << std::endl;
 	
 	if (this != &obj)
 	{
@@ -46,8 +46,10 @@ Character &Character::operator=(const Character &obj)
 		this->_nbMateria = obj._nbMateria;
 		for (int i = 0; i < 4; i++)
 		{
+			if (this->_inventory[i])
+				delete this->_inventory[i];
 			if (obj._inventory[i])
-				this->_inventory[i] = obj._inventory[i]->clone(); 
+				this->_inventory[i] = obj._inventory[i]->clone();
 			else
 				this->_inventory[i] = NULL;
 		}
@@ -57,7 +59,7 @@ Character &Character::operator=(const Character &obj)
 
 Character::~Character()
 {
-	std::cout << RED << "Character destructor called" << RESET << std::endl;
+	std::cout << GREEN << "Character destructor called" << RESET << std::endl;
 	for (int i = 0; i < 4; i++)
 		delete this->_inventory[i];
 }
@@ -150,7 +152,13 @@ void Character::use(int idx, ICharacter &target)
 	this->_inventory[idx]->use(target);
 }
 
-void Character::changeName(std::string name)
+void Character::displayInventory()
 {
-	this->_name = name;
+	for (int i = 0; i < 4; i++)
+	{
+		if (this->_inventory[i])
+			std::cout << this->_name << "->_inventory[" << i << "] : " << this->_inventory[i]->getType() << std::endl;
+		else
+			std::cout << this->_name << "->_inventory[" << i << "] : is empty" << std::endl;
+	}
 }

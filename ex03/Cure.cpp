@@ -14,18 +14,18 @@
 Cure::Cure()
 {
     _type = "cure";
-	std::cout << GREEN << "Cure constructor called" << RESET << std::endl;
+	std::cout << YELLOW << "Cure constructor called" << RESET << std::endl;
 }
 
 Cure::Cure(const Cure &obj)
 {
     *this = obj;
-	std::cout << "Cure copy constructor called" << std::endl;
+	std::cout << YELLOW << "Cure copy constructor called" << RESET << std::endl;
 }
 
 Cure &Cure::operator=(const Cure &obj)
 {
-    std::cout << "Cure copy assignment operator called" << std::endl;
+    std::cout << YELLOW << "Cure copy assignment operator called" << RESET << std::endl;
 	if (this != &obj)
 		this->_type = obj._type;
 	return (*this);
@@ -33,7 +33,7 @@ Cure &Cure::operator=(const Cure &obj)
 
 Cure::~Cure()
 {
-	std::cout << RED << "Cure destructor called" << RESET << std::endl;
+	std::cout << YELLOW << "Cure destructor called" << RESET << std::endl;
 }
 
 std::string const &Cure::getType() const

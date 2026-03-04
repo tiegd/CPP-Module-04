@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 09:20:36 by gaducurt          #+#    #+#             */
-/*   Updated: 2026/02/24 13:55:25 by gaducurt         ###   ########.fr       */
+/*   Updated: 2026/03/04 10:20:49 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,3 +29,10 @@
 	};
 
 #endif
+
+#define RED     "\033[31m"
+#define GREEN   "\033[32m"
+#define YELLOW  "\033[33m"
+#define BLUE    "\033[34m"
+#define PURPLE  "\033[35m"
+#define RESET   "\033[0m"

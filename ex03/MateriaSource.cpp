@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/27 10:13:28 by gaducurt          #+#    #+#             */
-/*   Updated: 2026/03/03 16:07:46 by gaducurt         ###   ########.fr       */
+/*   Updated: 2026/03/04 11:44:38 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,20 @@
 
 MateriaSource::MateriaSource()
 {
-	std::cout << "MateriaSource Constructor called" << std::endl;
+	std::cout << RED << "MateriaSource Constructor called" << RESET << std::endl;
 	for (int i = 0; i < 4; i++)
 		this->_inventory[i] = NULL;
 }
 
 MateriaSource::MateriaSource(const MateriaSource &obj)
 {
-	std::cout << "MateriaSource Copy constructor called" << std::endl;
+	std::cout << RED << "MateriaSource Copy constructor called" << RESET << std::endl;
 	*this = obj;
 }
 
 MateriaSource &MateriaSource::operator=(const MateriaSource &obj)
 {
-	std::cout << "MateriaSource Copy assignment operator called" << std::endl;
+	std::cout << RED << "MateriaSource Copy assignment operator called" << RESET << std::endl;
 	if (this != &obj)
 	{
 		for (int i = 0; i < 4; i++)
@@ -80,5 +80,5 @@ AMateria *MateriaSource::createMateria(std::string const &type)
 			}
 		}
 	}
-	return (NULL);
+	return (0);
 }

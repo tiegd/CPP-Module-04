@@ -16,15 +16,15 @@
 Cat::Cat()
 {
     _type = "Cat";
-	std::cout << "Cat constructor called" << std::endl;
+	std::cout << BLUE << "Cat constructor called" << RESET << std::endl;
 }
 
 Cat::~Cat()
 {
-	std::cout << "Cat destructor called" << std::endl;
+	std::cout << BLUE << "Cat destructor called" << RESET << std::endl;
 }
 
 void Cat::makeSound() const
 {
-	std::cout << "Miaou" << std::endl;
+	std::cout << BLUE << "Miaou" << RESET << std::endl;
 }
